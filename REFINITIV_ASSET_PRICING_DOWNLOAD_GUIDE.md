@@ -1,9 +1,9 @@
-# Refinitiv Workspace Excel Download Guide for European ML Asset Pricing
+# Refinitiv Workspace download guide
 
-This guide is for building a monthly European stock-level panel suitable for a
-Gu-Kelly-Xiu-style or regime-conditional asset-pricing dissertation.
+This guide covers the Refinitiv Workspace and Datastream Excel downloads that
+build the monthly European stock-level panel used by this repository.
 
-## Scope to Use
+## Scope
 
 Start with this. It is large enough for a serious MSc project, but not so large that the
 data build becomes the dissertation.
@@ -20,7 +20,7 @@ data build becomes the dissertation.
 Do a pilot first: 20-50 active stocks plus at least 5 inactive/dead stocks. Scale only
 after the pilot files import cleanly.
 
-## Folder and File Names
+## Folders and file names
 
 Save raw exports unchanged here:
 
@@ -39,7 +39,7 @@ Create these files exactly:
 | 5 | `refinitiv_fundamentals_quarterly.csv` | Optional later; do not start here |
 | 6 | `refinitiv_analyst_estimates_monthly.csv.gz` | Optional analyst-estimates extension |
 
-## File 1: Universe Master
+## File 1: universe master
 
 Export one row per security.
 
@@ -91,7 +91,7 @@ Workspace/Data Item Browser fields to search:
 If the exact listing-status fields are not available in Workspace Lite, preserve whatever
 Workspace exports from Screener/List Manager, and name the resulting column clearly.
 
-## File 2: Monthly Prices and Returns
+## File 2: monthly prices and returns
 
 Preferred route: Datastream Request Table, because `RI` is the clean total-return index.
 
@@ -124,7 +124,7 @@ Workspace/TR fallback fields:
 
 If Datastream gives a wide file, that is fine. Save it raw. The analysis code can reshape it.
 
-## File 3: Monthly Market Data
+## File 3: monthly market data
 
 Canonical columns:
 
@@ -164,9 +164,9 @@ Workspace/TR fallback fields:
 | `ask` | use Data Item Browser result | Ask |
 
 Bid/ask fields are optional. If Workspace Lite does not return them, volume and turnover are
-enough for a dissertation-level implementability proxy.
+enough for a workable implementability proxy.
 
-## File 4: Annual Fundamentals
+## File 4: annual fundamentals
 
 Preferred route: Worldscope/Datastream datatypes. These names are stable and easier to audit.
 
@@ -244,7 +244,7 @@ For the TR.F fields, use annual/fiscal-year parameters in Formula Builder. If Wo
 period parameters, use `Period=FY0` for the latest fiscal year, then historical fiscal periods through
 the Formula Builder or Request Table. Do not manually paste only the latest year.
 
-## File 5: Optional Quarterly Fundamentals
+## File 5: optional quarterly fundamentals
 
 Only download this after annual data works.
 
@@ -257,11 +257,9 @@ refinitiv_fundamentals_quarterly.csv
 Use the same fields as annual fundamentals, but quarterly/fiscal-quarter frequency. This is optional
 because quarterly availability is less consistent across European firms and can waste time.
 
-## File 6: Analyst Estimates Extension
+## File 6: analyst-estimates extension
 
-This is the preferred next predictor expansion because it adds forward-looking
-information without mechanically neutralizing the broad return structure that
-currently helps the portfolios.
+This optional extension adds forward-looking analyst fields to the panel.
 
 Canonical output file:
 
@@ -312,9 +310,9 @@ price panel, currently `Curn=EUR` in the downloader. If any mnemonic fails under
 your entitlement, use Workspace Data Item Browser to find the equivalent and
 rerun with repeated `--field` overrides.
 
-## Excel Add-in Workflow
+## Excel add-in workflow
 
-### A. If You Have Datastream Menu
+### A. If you have the Datastream menu
 
 Use this route first.
 
@@ -335,7 +333,7 @@ Use this route first.
    - Frequency: Annual / Fiscal year
 6. Save each raw output as CSV/XLSX using the filenames above.
 
-### B. If You Only Have Workspace Formula Builder
+### B. If you only have Workspace Formula Builder
 
 Use Build Formula / Data Item Browser.
 
@@ -374,7 +372,7 @@ TR.GICSSector
 TR.GICSIndustry
 ```
 
-## Minimum Viable Dissertation Panel
+## Minimum viable panel
 
 If time is short, this is enough:
 
@@ -387,7 +385,7 @@ If time is short, this is enough:
 
 This supports size, value, profitability, investment, momentum, reversal, volatility and liquidity.
 
-## Implementable-Frontier Liquidity Pull
+## Implementable-frontier liquidity pull
 
 The final cost-aware stage uses a restricted universe containing every
 security that can enter the monthly top-500 optimization. Generate or retain:
@@ -424,7 +422,7 @@ supplemental/refinitiv_liquidity_full_period_manifest.json
 The app key may be longer than examples shown in older Workspace material.
 Always export the complete value provided by Workspace; do not truncate it.
 
-## Red Flags
+## Red flags
 
 Do not proceed to full modelling until these are solved:
 
@@ -434,6 +432,3 @@ Do not proceed to full modelling until these are solved:
 - price data lacks either total return index or dividend-adjusted return;
 - identifiers cannot link price and fundamentals reliably;
 - currencies are mixed but not labelled.
-
-If those problems cannot be solved in Workspace Lite, use the French factor/portfolio route instead:
-regime-conditional European factor timing.

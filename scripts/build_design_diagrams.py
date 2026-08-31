@@ -434,10 +434,7 @@ def plot_research_design_map(output_dir: Path) -> DiagramRecord:
         output_dir,
         "research_design_map",
         rows=rows,
-        source_files=[
-            PROJECT_ROOT / "docs" / "INTRO_LIT_REVIEW_GUIDELINE.md",
-            PROJECT_ROOT / "docs" / "CHAPTER5_FORMAT_BENCHMARK.md",
-        ],
+        source_files=[],
         description=(
             "Conceptual map linking the European data setting, separated design "
             "components, paired out-of-sample evaluation and dissertation questions."
@@ -727,10 +724,7 @@ def plot_walk_forward_timing(output_dir: Path) -> DiagramRecord:
         output_dir,
         "walk_forward_timing_leakage_controls",
         rows=rows,
-        source_files=[
-            PROJECT_ROOT / "DATA.md",
-            PROJECT_ROOT / "docs" / "DRAFT_10AUG_FACTCHECK_2026-08-17.md",
-        ],
+        source_files=[PROJECT_ROOT / "DATA.md"],
         description=(
             "Walk-forward estimation and leakage-control diagram covering annual "
             "refits, trailing validation, out-of-sample evaluation and month t to "

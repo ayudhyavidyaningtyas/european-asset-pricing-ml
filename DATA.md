@@ -1,8 +1,8 @@
 # Data Policy
 
-Raw data, processed panels and experiment outputs are intentionally not tracked
-in Git. Most files come from licensed Refinitiv/LSEG and Compustat access, so
-they should stay local.
+Licensed raw data, processed panels and generated model outputs are not
+uploaded in Git due to license. Most files come from Refinitiv/LSEG and
+Compustat subscriptions, so they stay local.
 
 Expected local directories:
 
@@ -15,7 +15,7 @@ data/processed/asset_pricing/
 results/asset_pricing_ml/
 ```
 
-Key generated panels:
+Generated panels:
 
 - `data/processed/asset_pricing/monthly_feature_panel.parquet`
 - `data/processed/asset_pricing/monthly_feature_panel_compustat.parquet`
@@ -29,7 +29,7 @@ Key generated panels:
 - `data/processed/asset_pricing/refinitiv_estimates_enrichment_audit.json`
 - `data/processed/asset_pricing/refinitiv_estimates_feature_dictionary.csv`
 
-Key external inputs:
+External inputs:
 
 - Refinitiv/LSEG European equity universe, monthly prices, market caps, returns,
   volumes, fundamentals and liquidity fields.
