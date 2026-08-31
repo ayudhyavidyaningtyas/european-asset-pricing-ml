@@ -1,0 +1,23 @@
+# Core
+numpy
+pandas
+scipy
+matplotlib
+
+# Stats / evaluation
+statsmodels       # HAC / Newey-West standard errors for Sharpe-difference tests
+scikit-learn      # scaling, TS cross-validation utilities
+cvxpy              # constrained implementable-frontier optimisation
+osqp               # deterministic quadratic-program solver
+lightgbm            # monthly LambdaRank conditional return ranking
+torch               # adversarial LSTM/GAN SDF and MLP benchmarks
+
+# Data access (optional helpers)
+pandas-datareader # FRED pulls
+requests
+pyarrow            # parquet IO for processed panels and result artifacts
+lseg-data          # optional LSEG Workspace/Refinitiv Python downloads
+wrds               # optional WRDS Compustat downloads
+
+# Testing
+pytest

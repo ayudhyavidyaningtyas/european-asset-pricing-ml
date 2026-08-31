@@ -1,0 +1,39 @@
+# Raw/generated data are not committed.
+data/raw
+data/raw/
+data/processed
+data/processed/
+results/*
+results/asset_pricing_ml
+figures/*
+outputs/*
+tmp/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Refinitiv credentials
+refinitiv-data.config.json
+.env
+
+# macOS / editor
+.DS_Store
+**/.DS_Store
+~$*
+*.tmp
+*.bak
+.vscode/
+.idea/
+
+# Keep empty scaffold dirs in git.
+!data/.gitkeep
+!results/.gitkeep
+!figures/.gitkeep
+!outputs/.gitkeep

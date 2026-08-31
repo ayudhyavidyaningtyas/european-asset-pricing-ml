@@ -1,0 +1,22 @@
+{
+  "//": "Copy this file to 'refinitiv-data.config.json' (same folder you run Python from) and fill in your credentials. The real config is git-ignored so your keys are never committed.",
+
+  "sessions": {
+    "//": "Set 'default' to 'desktop.workspace' if Refinitiv Workspace/Eikon runs on this machine (open + logged in while the script runs). Use 'platform.rdp' only for headless/server access.",
+    "default": "desktop.workspace",
+
+    "desktop": {
+      "workspace": {
+        "app-key": "YOUR_APP_KEY_HERE"
+      }
+    },
+
+    "platform": {
+      "rdp": {
+        "app-key": "YOUR_APP_KEY_HERE",
+        "username": "YOUR_RDP_USERNAME",
+        "password": "YOUR_RDP_PASSWORD"
+      }
+    }
+  }
+}
