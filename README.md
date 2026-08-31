@@ -3,7 +3,7 @@
 Code for the MSc dissertation "Deep Learning and the Tradability Gradient in
 European Equity Return Prediction".
 
-This is the clean code repository for the dissertation. Licensed raw data,
+Licensed raw data,
 processed panels, generated model outputs and submission documents are not
 uploaded in Git due to license.
 
