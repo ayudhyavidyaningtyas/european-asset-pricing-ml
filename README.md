@@ -21,15 +21,17 @@ figures/   Generated figures (kept local)
 
 ```mermaid
 flowchart LR
-    R["Raw exports<br>Refinitiv/LSEG, Compustat, WRDS"] --> B["Panel builders<br>scripts/build_*.py"]
+    D["Data downloaders<br>scripts/refinitiv_*.py, download_*.py"] --> R["Raw exports<br>data/raw (kept local)"]
+    R --> B["Panel builders<br>scripts/build_*.py"]
     B --> P["Monthly feature panels<br>data/processed (kept local)"]
-    P --> M["Walk-forward benchmark<br>scripts/run_asset_pricing_ml.py"]
+    P --> M["Model and experiment runners<br>scripts/run_*.py"]
     M --> O["Model outputs<br>results/ (kept local)"]
 ```
 
-The analyst-estimates extension and the US comparison follow the same flow
-with their own builder and runner commands; `docs/REPRODUCTION.md` lists all
-of them.
+`run_asset_pricing_ml.py` is the main benchmark entry point among the 49
+runners. The analyst-estimates extension and the US comparison follow the same
+flow with their own builder and runner commands; `docs/REPRODUCTION.md` lists
+them.
 
 Documentation:
 
