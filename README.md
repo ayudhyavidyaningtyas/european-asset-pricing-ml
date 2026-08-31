@@ -62,3 +62,9 @@ model runners and portfolio construction.
 ```bash
 pytest -q
 ```
+
+## License
+
+The code is released under the MIT License (see `LICENSE`). This does not
+extend to the data: raw and processed inputs remain under Refinitiv/LSEG and
+Compustat licences and are not distributed here.
