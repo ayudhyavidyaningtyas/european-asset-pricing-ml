@@ -3,9 +3,8 @@
 Code for the MSc dissertation "Deep Learning and the Tradability Gradient in
 European Equity Return Prediction".
 
-Licensed raw data,
-processed panels, generated model outputs and submission documents are not
-uploaded in Git due to license.
+Licensed raw data, processed panels, generated model outputs and submission
+documents are not uploaded in Git due to license.
 
 ## Layout
 
@@ -17,6 +16,20 @@ data/      Raw and processed data (kept local)
 results/   Experiment outputs (kept local)
 figures/   Generated figures (kept local)
 ```
+
+## Pipeline
+
+```mermaid
+flowchart LR
+    R["Raw exports<br>Refinitiv/LSEG, Compustat, WRDS"] --> B["Panel builders<br>scripts/build_*.py"]
+    B --> P["Monthly feature panels<br>data/processed (kept local)"]
+    P --> M["Walk-forward benchmark<br>scripts/run_asset_pricing_ml.py"]
+    M --> O["Model outputs<br>results/ (kept local)"]
+```
+
+The analyst-estimates extension and the US comparison follow the same flow
+with their own builder and runner commands; `docs/REPRODUCTION.md` lists all
+of them.
 
 Documentation:
 
@@ -42,6 +55,9 @@ export LSEG_APP_KEY
 ```
 
 ## Tests
+
+The suite has 55 unit and regression test modules covering the panel builders,
+model runners and portfolio construction.
 
 ```bash
 pytest -q
